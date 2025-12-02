@@ -26,7 +26,7 @@ jobs:
           # to the S3 bucket.
           # The '--delete' flag ensures files removed locally are also removed from S3.
           # The '--acl public-read' makes the deployed files publicly accessible.
-          aws s3 sync . s3://YOUR_BUCKET_NAME --delete --acl public-read
+          aws s3 sync . s3://static-website-pallavi --delete --acl public-read
           
       - name: Notify Deployment Success
         run: echo "Deployment complete! Check the Actions tab on GitHub for details."
