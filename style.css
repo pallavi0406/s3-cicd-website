@@ -1,111 +1,77 @@
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding-top: 50px;
-    background-color: #f0f0f0;
-}
-h1 {
-    color: #333;/* Reset */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Center everything on the page */
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  min-height: 100vh;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #d7e8f8, #ffffff);
+  height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #0f172a, #1d4ed8);
-  color: #0f172a;
-}
-
-.card {
-  background: #ffffff;
-  padding: 2.5rem 3rem;
-  border-radius: 18px;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
-  max-width: 800px;
-  width: 90%;
+  align-items: center;
   text-align: center;
 }
 
-.badge {
-  display: inline-block;
-  padding: 0.25rem 0.8rem;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  background: #e0ecff;
-  color: #1d4ed8;
-  margin-bottom: 1rem;
-  font-weight: 600;
+/* Card container */
+.container {
+  background: #ffffff;
+  padding: 40px 50px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  max-width: 850px;
 }
 
+/* Badge */
+.badge {
+  background: #1d4ed8;
+  color: #ffffff;
+  padding: 6px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 18px;
+  display: inline-block;
+}
+
+/* Headings & sections */
 h1 {
-  font-size: 1.9rem;
-  margin-bottom: 1rem;
-  line-height: 1.4;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 18px;
   color: #0f172a;
 }
 
 .description {
-  font-size: 0.98rem;
-  line-height: 1.7;
-  color: #4b5563;
-  margin-bottom: 1.8rem;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 28px;
 }
 
-.section-title {
-  font-size: 1.1rem;
-  margin-bottom: 0.75rem;
+.members-title {
+  font-size: 22px;
   font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* Member list centered */
+.members-list {
+  list-style: none;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.8;
   color: #111827;
+  padding: 0;
+  margin-bottom: 28px;
 }
 
-ol {
-  list-style: decimal;
-  padding-left: 1.2rem;
-  text-align: left;
-  display: inline-block;
-  margin: 0 auto 0.5rem auto;
-  color: #374151;
-  font-size: 0.97rem;
-}
-
-ol li {
-  margin-bottom: 0.4rem;
-}
-
-.footer-note {
-  margin-top: 1.2rem;
-  font-size: 0.82rem;
-  color: #6b7280;
-}
-
-.highlight {
-  color: #1d4ed8;
-  font-weight: 600;
-}
-
-@media (max-width: 600px) {
-  .card {
-    padding: 2rem 1.5rem;
-  }
-
-  h1 {
-    font-size: 1.5rem;
-  }
-
-  .description {
-    font-size: 0.92rem;
-  }
-}
-
-}
-p {
-    color: #555;
+/* Footer */
+.footer {
+  font-size: 14px;
+  color: #666;
+  margin-top: 10px;
 }
