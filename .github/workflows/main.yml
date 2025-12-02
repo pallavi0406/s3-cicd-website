@@ -1,32 +1,32 @@
-name: Deploy Static Website to S3 # A descriptive name for your workflow
+name: Deploy Static Website to S3
 
 on:
   push:
     branches:
-      - main # This triggers the workflow whenever code is pushed to the 'main' branch
+      - main # Triggers the workflow on pushes to the 'main' branch
 
 jobs:
-  deploy: # The main job definition
-    runs-on: ubuntu-latest # Specifies the environment the job will run on (a virtual machine)
+  deploy:
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository # Step 1: Get the code from your GitHub repo
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Configure AWS Credentials # Step 2: Set up the AWS environment using secrets
+      - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          # References the secrets you stored in GitHub Settings
+          # These values are pulled from the GitHub Repository Secrets
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
-      - name: Deploy Static Site to S3 Bucket # Step 3: The actual deployment command
+      - name: Deploy Static Site to S3 Bucket
         run: |
-          # The 'aws s3 sync' command copies/updates all files from the local directory (.)
-          # to the S3 bucket.
-          # The '--delete' flag ensures files removed locally are also removed from S3.
-          # The '--acl public-read' makes the deployed files publicly accessible.
-          aws s3 sync . s3://static-website-pallavi --delete --acl public-read
-          
+          # The 'aws s3 sync' command copies files from the current directory (the root of your project).
+          # The '--exclude .git/*' is necessary to prevent uploading internal git files.
+          # The '--delete' flag removes files from S3 that no longer exist in your repository.
+          # The '--acl public-read' flag is REMOVED because your bucket is configured to disable ACLs.
+          aws s3 sync . s3://static-website-pallavi --delete --exclude '.git/*'
+
       - name: Notify Deployment Success
-        run: echo "Deployment complete! Check the Actions tab on GitHub for details."
+        run: echo "Static website deployed to S3 bucket static-website-pallavi!"
